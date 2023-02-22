@@ -24,7 +24,7 @@ const getRecetaById = async () => {
                 return { number: step.number, step: step.step };
             })
         }
-        return recipeDetai;
+        return recipeDetail;
 
     } catch (err) {
         console.log(`${err}`);
@@ -53,6 +53,7 @@ const getRecetaByName = async (name) => {
     }
 }
 
+// POST
 const setRecetaDatabase = async (title, image, summary, healthScore, steps) => {
     // Creating new recipe
     const [newRecipe, created] = await Recipe.findOrCreate({
