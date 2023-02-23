@@ -77,18 +77,22 @@ const getRecetaByName = async (name) => {
 
 
 // POST database
-const setRecetaDatabase = async (title, image, summary, healthScore, steps) => {
+const setRecetaDatabase = async (name, image, summary_dish, health_score, steps) => {
     // Creating new recipe
-    const [newRecipe, created] = await Recipe.findOrCreate({
-        where: { title: title.toLowerCase() },
-        defaults: {
-            image,
-            summary,
-            healthScore,
-            steps
-        }
-    })
+    // const [newRecipe, created] = await Recipe.findOrCreate({
+    //     where: { title: title.toLowerCase() },
+    //     defaults: {
+    //         image,
+    //         summary,
+    //         healthScore,
+    //         steps
+    //     }
+    // });
+    const newRecipe = await Recipe.create({name, image, summary_dish, health_score, steps})
 
+    // if (!created) throw new Error(`${title} allready exist`);
+
+    return newRecipe;
 }
 
 
