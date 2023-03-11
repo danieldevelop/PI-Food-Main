@@ -1,5 +1,7 @@
+const axios = require('axios');
 const { Diet } = require('../db');
 
+require('dotenv').config();
 
 const getDiets = async () => {
     try {
